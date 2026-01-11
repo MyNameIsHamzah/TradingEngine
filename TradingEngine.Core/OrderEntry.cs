@@ -1,6 +1,13 @@
 using System.Runtime.InteropServices;
 
 namespace TradingEngine.Core;
+
+// Invariants:
+// - No heap allocations
+// - Fixed size (32 bytes)
+// - All fields are blittable
+// - Suitable for array-backed storage and unsafe access
+
 public enum OrderSide
 {
   Bid,
