@@ -15,12 +15,12 @@ public enum OrderSide
 }
 
 [StructLayout(LayoutKind.Explicit, Size = 32)]
-public struct OrderEntry
+public struct OrderEntry(int i, int i1, int i2, OrderSide bid, int i3)
 {
   [FieldOffset(0)] public long OrderId;
   [FieldOffset(8)] public long Price;
   [FieldOffset(16)] public int Quantity;
   [FieldOffset(20)] public OrderSide Side; //padding at bytes 21,22 and 23. 
   [FieldOffset(24)] public long SequenceId; 
-  
 }
+
