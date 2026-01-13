@@ -9,12 +9,27 @@ public class OrderBook
     {
         if (orderEntry.Side == OrderSide.Ask)
         {
-            _asks.Add(orderEntry.Price, new LinkedList<OrderEntry>());
+            if (_asks.ContainsKey(orderEntry.Price))
+            {
+                _asks[orderEntry.Price].AddLast(orderEntry);
+            }
+            else
+            {
+                _asks.Add(orderEntry.Price, new LinkedList<OrderEntry>());
+                _asks[orderEntry.Price].AddLast(orderEntry);
+            }
         }
         else if (orderEntry.Side == OrderSide.Bid)
         {
-            _bids.Add(orderEntry.Price, new LinkedList<OrderEntry>());
+            if (_bids.ContainsKey(orderEntry.Price))
+            {
+                _bids[orderEntry.Price].AddLast(orderEntry);
+            }
+            else
+            {
+                _bids.Add(orderEntry.Price, new LinkedList<OrderEntry>());
+                _bids[orderEntry.Price].AddLast(orderEntry);
+            }
         }
     }
-    
 }
