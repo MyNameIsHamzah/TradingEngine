@@ -10,22 +10,5 @@ book.AddOrder(new OrderEntry(1,102,3,OrderSide.Ask,3));
 
 book.AddOrder(new OrderEntry(1,102,4,OrderSide.Ask,4));
 
-Console.WriteLine("- - - - - - - - Bids - - - - - - - -");
-foreach (var priceLevel in book._bids)
-{
-    Console.WriteLine($"Price level: {priceLevel.Key}");   
-    foreach (var bid in priceLevel.Value)
-    {
-        Console.WriteLine($"Order Id: {bid.OrderId}, Quantity: {bid.Quantity} ");
-    }
-}
+book.PrintOrders(book);
 
-Console.WriteLine("- - - - - - - - Asks - - - - - - - -");
-foreach (var priceLevel in book._asks)
-{
-    Console.WriteLine($"Price level: {priceLevel.Key}");   
-    foreach (var ask in priceLevel.Value)
-    {
-        Console.WriteLine($"Order Id: {ask.OrderId}, Quantity: {ask.Quantity} ");
-    }
-}
